@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+  
+    <title>My Newsletter</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Subscribe To My Weekly Newsletter.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css')}}">
+    
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script> 
+
+    <script src="{{ url_for('static',filename='js/index.js')}}"></script>
+
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+  
+  </head>
+  <body>
+    <div class="container h-100">
+      
+      <div class="row h-100 justify-content-center align-items-center">
+        <div class="card col-md-10 col-lg-6 mx-auto">
+          <div class="card-body">
+            <p class="text-center">
+                <img src="{{ url_for('static',filename='images/email-sm.png')}}">
+              </p>
+              
+            <form method="POST" action="/subscribe" class="form">
+          
+              <h4 class="card-title text-center">Subscribe To My Newsletter</h4>
+              <hr>
+              <p class="card-text">Get a curated list of my blog posts, across various topics, sent to you once a week by mail.</p>
+              <hr>
+              <div class="row">
+                <div class="form-group-inline col-sm-6">
+                  <label for="firstname">First Name:</label>
+                  <input type="text" class="form-control" placeholder="John" name="firstname" required="">
+                </div> 
+                <div class="form-group-inline col-sm-6">
+                  <label for="lastname">Last Name:</label>
+                  <input type="text" class="form-control" placeholder="Doe" name="lastname" required="">
+                </div> 
+              </div>
+              <br>
+              <div class="form-group">
+                <label for="email">Email Id:</label>
+                <input type="enail" class="form-control" placeholder="foo@bar.com" name="email" required="">
+              </div>
+              <br>
+              <div class="text-center recaptcha">
+                <div class="g-recaptcha" data-sitekey="6Ld2jGAUAAAAABTfRWl7HQgHsSktWyVsEKY8L_si" data-callback="captcha" data-expired-callback="reset"></div>
+              </div>
+              <br>
+              <p class="text-center">
+                <button id="submit" type="submit" class="btn btn-outline-primary text-center">Subscribe</button>
+              </p>
+            
+            </form>
+          
+          </div>
+        </div>
+      </div>
+
+    </div> 
+  </body>
+</html>

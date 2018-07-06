@@ -1,0 +1,17 @@
+body {
+  background: linear-gradient(-45deg, #210242, #9198e5);
+  height: 100vh;
+  margin: 0;
+  width: 100vw;
+}
+
+.g-recaptcha{
+  display: inline-block;
+}
+
+@media only screen and (max-width: 600px) {
+  .recaptcha{
+    transform: scale(0.95);
+    transform-origin: 0 0;
+  }
+}

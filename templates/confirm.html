@@ -1,0 +1,55 @@
+{% extends 'layouts/base.html' %}
+{% block name %}
+{{ name }}
+{% endblock %}
+
+{% block header_img %}
+<tr>
+    <td align="center" class="section-img">
+        <a href="" style=" border-style: none !important; display: block; border: 0 !important;"><img src="https://abhishekbalam.xyz/newsletter/assets/welcome.jpg" style="display: block; width: 590px;" width="590" border="0" alt="" /></a>
+    </td>
+</tr>
+{% endblock %}
+
+{% block intro %}
+<p>
+Thanks for subscribing!<br>
+Just 2 more steps before you start receiving my newsletters:
+<ol>
+	<li>Mark this mail as <b>NOT SPAM</b>.</li>
+	<li>Click on the button below to confirm your subscribtion.</li>
+</ol>
+</p>
+{% endblock %}
+{% block confirm %}
+<tr>
+		<td height="25" style="font-size: 25px; line-height: 25px;">&nbsp;</td>
+</tr>
+
+<tr>
+    <td align="center">
+        <table border="0" align="center" width="160" cellpadding="0" cellspacing="0" bgcolor="5caad2" style="">
+
+            <tr>
+                <td height="10" style="font-size: 10px; line-height: 10px;">&nbsp;</td>
+            </tr>
+
+            <tr>
+                <td align="center" style="color: #ffffff; font-size: 14px; font-family: 'Work Sans', Calibri, sans-serif; line-height: 26px;">
+
+
+                    <div style="line-height: 26px;">
+                        <a href="https://newsletter.abhishekbalam.xyz/subscribed" style="color: #ffffff; text-decoration: none;">Confirm Email</a>
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td height="10" style="font-size: 10px; line-height: 10px;">&nbsp;</td>
+            </tr>
+
+        </table>
+    </td>
+</tr>
+
+{% endblock %}

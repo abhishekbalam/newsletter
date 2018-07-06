@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:v="urn:schemas-microsoft-com:vml">
+
+
+{% include 'layouts/head.html' %}
+
+<body class="respond" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+
+{% include 'layouts/header.html' %}
+
+    <!-- big image section -->
+    <table border="0" width="100%" cellpadding="0" cellspacing="0" bgcolor="ffffff" class="bg_color">
+
+        <tr>
+            <td align="center">
+                <table border="0" align="center" width="590" cellpadding="0" cellspacing="0" class="container590">
+                    
+                    {% block header_img %}
+                    {% endblock %}
+                    <tr>
+                        <td height="20" style="font-size: 20px; line-height: 20px;">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td align="ceter" style="color: #343434; font-size: 24px; font-family: Quicksand, Calibri, sans-serif; font-weight:700;letter-spacing: 3px; line-height: 35px;"
+                            class="main-header">
+
+
+                            <div style="line-height: 35px">
+
+                                Hey, <span style="color: #5caad2;">{% block name %}Abhishek{% endblock %}</span>
+
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td height="10" style="font-size: 10px; line-height: 10px;">&nbsp;</td>
+                    </tr>
+                    
+                    <tr>
+                        <td align="cent">
+                            <table border="0" width="40" align="cente" cellpadding="0" cellspacing="0" bgcolor="eeeeee">
+                                <tr>
+                                    <td height="2" style="font-size: 2px; line-height: 2px;">&nbsp;</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td height="20" style="font-size: 20px; line-height: 20px;">&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                        <td align="cener">
+                            <table border="0" width="590" align="centr" cellpadding="0" cellspacing="0" class="container590">
+                                <tr>
+                                    <td align="ceter" style="color: #000; font-size: 18px; font-family: 'Work Sans', Calibri, sans-serif; line-height: 24px;">
+                                        
+                                        <div style="line-height: 24px;text-align: justify;">
+                                            {% block intro %}
+                                            {% endblock %}
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    
+                    {% block confirm %}
+                    {% endblock %}
+
+                </table>
+
+            </td>
+        </tr>
+
+        <tr class="hide">
+            <td height="25" style="font-size: 25px; line-height: 25px;">&nbsp;</td>
+        </tr>
+        <tr>
+            <td height="40" style="font-size: 40px; line-height: 40px;">&nbsp;</td>
+        </tr>
+
+    </table>
+    <!-- end section -->
+    
+    {% block content %}
+    {% endblock %}
+    
+    {% with email=email %}
+        {% include 'layouts/footer.html' %}
+    {% endwith %}
+    
+    
+</body>
+
+</html>
