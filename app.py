@@ -108,7 +108,9 @@ def mail(token):
 
 	response='Newsletter Sent to the following emails:<br><ol>'
 	for user in users:
-		response+='<li>'+user[0]+'</li>'
+		if('1' in user[1]):
+			response+='<li>'+user[0]+'</li>'
+	
 	response+='</ol>'
 	
 	with mail.connect() as conn:
