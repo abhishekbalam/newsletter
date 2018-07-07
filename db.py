@@ -22,7 +22,7 @@ def validateuser(email):
 	if(user is None ):
 		return False
 	else:
-		user.replace('0','1')
+		user=user.replace('0','1')
 		db.hset("users", email, user)
 		return True
 
