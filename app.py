@@ -59,9 +59,9 @@ def verify(email):
 @app.route('/subscribe', methods = ['POST'])	
 def subscribe():
 	data=request.form
-	firstname=data['firstname']
-	lastname=data['lastname']
-	email=data['email']
+	firstname=data['firstname'].strip()
+	lastname=data['lastname'].strip()
+	email=data['email'].strip()
 
 	if(verify(email)==False):
 		text="Invalid Email"
