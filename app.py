@@ -19,10 +19,13 @@ app_token=os.environ['APP_TOKEN']
 def main():
 	return render_template('index.html')
 
-@app.route('/subscribed')	
-def subscribed():
-	return render_template('subscribed.html')
-
+@app.route('/subscribed/<email>')	
+def subscribed(email):
+	if(db.validateuser(email)):
+		return render_template('subscribed.html')
+	else:
+		text='Email does not exist.'
+		return render_template('error.html', text=text, again=True)	
 
 @app.route('/unsubscribe/<email>')	
 def unsubscribe(email):
@@ -78,7 +81,7 @@ def subscribe():
 		if(db.adduser(firstname,lastname,email)):
 			mail = Mail(app)
 			msg = Message('Confirm Your Email', sender = ('Abhishek Balam', 'newsletter@abhishekbalam.xyz'), recipients = [email])
-			msg.html = render_template('confirm.html', name=firstname) 
+			msg.html = render_template('confirm.html', name=firstname, email=email) 
 			mail.send(msg)
 			
 			return render_template('info.html')
@@ -110,17 +113,18 @@ def mail(token):
 	
 	with mail.connect() as conn:
 		for user in users:
-	
-			lname=str(user[1].split(',')[1])
-			fname=str(user[1].split(',')[0])
-			email=user[0]
-			subject='Abhishek Balam\'s Newsletter for '+data['date']
 			
-			msg = Message(subject, sender = ('Abhishek Balam', 'newsletter@abhishekbalam.xyz'), recipients = [email])
-			msg.html = render_template('newsletter.html', data=data, name=fname, email=email)
-			mail.send(msg)
+			status=str(user[1].split(',')[2])
 			
-			conn.send(msg)
+			if(status=='1'):
+				lname=str(user[1].split(',')[1])
+				fname=str(user[1].split(',')[0])
+				email=user[0]
+				subject='Abhishek Balam\'s Newsletter for '+data['date']
+				msg = Message(subject, sender = ('Abhishek Balam', 'newsletter@abhishekbalam.xyz'), recipients = [email])
+				msg.html = render_template('newsletter.html', data=data, name=fname, email=email)
+				mail.send(msg)
+				conn.send(msg)
 
 	return response
 
