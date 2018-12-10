@@ -1,1 +1,2 @@
-cayman/
+venv/
+*.pyc
